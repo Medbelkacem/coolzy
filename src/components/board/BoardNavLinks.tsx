@@ -5,9 +5,11 @@ import { useTranslations } from "next-intl";
 
 export function BoardNavLinks({ isAdmin }: { isAdmin: boolean }) {
   const t = useTranslations("nav");
+  const tw = useTranslations("worker");
   const pathname = usePathname();
   const items = [
     { href: "/board", label: t("board") },
+    { href: "/board/menu", label: tw("soldOut.navLabel") },
     { href: "/me/history", label: t("myHistory") },
     { href: "/me/payslips", label: t("myPayslips") },
     ...(isAdmin ? [{ href: "/admin", label: t("admin") }] : []),

@@ -1,0 +1,42 @@
+{
+  "soldOut": {
+    "navLabel": "Sold out",
+    "title": "Sold out today",
+    "intro": "A product marked sold out stays visible on the menu but can’t be ordered until the next opening.",
+    "markSoldOut": "Sold out today",
+    "backInStock": "Back in stock",
+    "until": "Until {time}",
+    "unavailable": "Removed from the menu by the admin",
+    "emptyTitle": "The menu is empty",
+    "emptyBody": "The admin hasn’t created any products yet.",
+    "search": "Search a product"
+  },
+  "history": {
+    "title": "My history",
+    "subtitle": "Orders you handled in the last 7 days",
+    "empty": "No orders handled in the last 7 days.",
+    "emptyBody": "Every order you accept or move forward will show up here.",
+    "items": "{count, plural, one {# item} other {# items}}",
+    "table": "Table {n}",
+    "delivery": "Delivery",
+    "total": "Total"
+  },
+  "payslips": {
+    "title": "My payslips",
+    "subtitle": "Payments recorded by the admin",
+    "empty": "No payment recorded yet.",
+    "emptyBody": "Your salary payments will appear here once they are entered.",
+    "period": "Period",
+    "amount": "Amount",
+    "paidAt": "Paid on",
+    "method": "Method",
+    "note": "Note",
+    "runningTotal": "Running total",
+    "methods": {
+      "CASH": "Cash",
+      "BANK": "Bank transfer",
+      "CCP": "CCP",
+      "OTHER": "Other"
+    }
+  }
+}

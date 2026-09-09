@@ -6,41 +6,15 @@ import { dayKey, openState } from "./time";
 import { ActionError } from "./action";
 import { audit } from "./audit";
 import { normalizePhone } from "./customer";
-import { OrderStatus, OrderType, type Locale } from "@/generated/prisma/enums";
+import { OrderStatus, type Locale } from "@/generated/prisma/enums";
 import type { Prisma } from "@/generated/prisma/client";
 import { locales } from "@/i18n/config";
 
-/* ------------------------------------------------------------------ */
-/* State machine                                                        */
-/* ------------------------------------------------------------------ */
-
-const FLOW: Record<OrderType, OrderStatus[]> = {
-  TABLE: ["RECEIVED", "APPROVED", "PREPARING", "READY", "COMPLETED"],
-  DELIVERY: ["RECEIVED", "APPROVED", "PREPARING", "READY", "DELIVERED"],
-};
-
-export const TERMINAL: OrderStatus[] = ["COMPLETED", "DELIVERED", "CANCELLED"];
-export const ACTIVE: OrderStatus[] = ["RECEIVED", "APPROVED", "PREPARING", "READY"];
-
-export function flowFor(type: OrderType): OrderStatus[] {
-  return FLOW[type];
-}
-export function isTerminal(status: OrderStatus): boolean {
-  return TERMINAL.includes(status);
-}
-/** The one forward step a worker can take from `status`, or null. */
-export function nextStatus(type: OrderType, status: OrderStatus): OrderStatus | null {
-  const flow = FLOW[type];
-  const i = flow.indexOf(status);
-  return i >= 0 && i < flow.length - 1 ? flow[i + 1] : null;
-}
-/** Workers move forward one step or cancel. Admins may override anything. */
-export function canTransition(type: OrderType, from: OrderStatus, to: OrderStatus, override = false): boolean {
-  if (from === to) return false;
-  if (override) return true;
-  if (to === "CANCELLED") return !isTerminal(from);
-  return nextStatus(type, from) === to;
-}
+/* State machine lives in order-flow.ts (pure, client-safe); re-exported here. */
+import { TERMINAL_STATUSES, ACTIVE_STATUSES, canTransition, displayNumber } from "./order-flow";
+export { flowFor, isTerminal, nextStatus, canTransition, displayNumber } from "./order-flow";
+export const TERMINAL = TERMINAL_STATUSES;
+export const ACTIVE = ACTIVE_STATUSES;
 
 /* ------------------------------------------------------------------ */
 /* Creation — the server recomputes every number.                       */
@@ -134,36 +108,40 @@ export async function createOrder(input: OrderInput, ctx: { clientToken: string 
   const key = dayKey();
   const token = randomBytes(18).toString("base64url");
 
-  for (let attempt = 0; attempt < 5; attempt++) {
-    const last = await db().order.findFirst({ where: { dayKey: key }, orderBy: { number: "desc" }, select: { number: true } });
-    const number = (last?.number ?? 0) + 1;
+  // Daily-sequential numbers: serialise allocation per day with an advisory
+  // lock so 50 concurrent orders never collide, plus a retry as a backstop.
+  for (let attempt = 0; attempt < 3; attempt++) {
     try {
-      const order = await db().order.create({
-        data: {
-          token,
-          dayKey: key,
-          number,
-          type: input.type,
-          tableNumber: input.type === "TABLE" ? input.tableNumber : null,
-          subtotal,
-          deliveryFee,
-          total,
-          note: input.note || null,
-          clientToken: ctx.clientToken,
-          customerId: customer?.id ?? null,
-          customerPhone: phone,
-          customerName: input.customerName || customer?.name || null,
-          address: input.type === "DELIVERY" ? input.address : null,
-          landmark: input.type === "DELIVERY" ? input.landmark || null : null,
-          locale: input.locale as Locale,
-          items: { create: lines },
-          events: { create: { status: "RECEIVED", byUserId: ctx.actorId ?? null } },
-        },
-        include: orderWithItems,
-      });
-      return order;
+      return await db().$transaction(async (tx) => {
+        await tx.$executeRaw`SELECT pg_advisory_xact_lock(hashtext(${"order-number:" + key}))`;
+        const last = await tx.order.findFirst({ where: { dayKey: key }, orderBy: { number: "desc" }, select: { number: true } });
+        const number = (last?.number ?? 0) + 1;
+        return tx.order.create({
+          data: {
+            token,
+            dayKey: key,
+            number,
+            type: input.type,
+            tableNumber: input.type === "TABLE" ? input.tableNumber : null,
+            subtotal,
+            deliveryFee,
+            total,
+            note: input.note || null,
+            clientToken: ctx.clientToken,
+            customerId: customer?.id ?? null,
+            customerPhone: phone,
+            customerName: input.customerName || customer?.name || null,
+            address: input.type === "DELIVERY" ? input.address : null,
+            landmark: input.type === "DELIVERY" ? input.landmark || null : null,
+            locale: input.locale as Locale,
+            items: { create: lines },
+            events: { create: { status: "RECEIVED", byUserId: ctx.actorId ?? null } },
+          },
+          include: orderWithItems,
+        });
+      }, { timeout: 15_000 });
     } catch (err) {
-      if ((err as { code?: string }).code === "P2002" && attempt < 4) continue;
+      if ((err as { code?: string }).code === "P2002" && attempt < 2) continue;
       throw err;
     }
   }
@@ -199,10 +177,6 @@ export async function transitionOrder(opts: {
   });
   if (opts.override) await audit(opts.actorId, "order.override", "Order", order.id, { from: order.status, to: opts.to, reason });
   return updated;
-}
-
-export function displayNumber(n: number): string {
-  return `#${String(n).padStart(4, "0")}`;
 }
 
 /** A plain, serialisable order for client components and SSE payloads. */

@@ -1,0 +1,42 @@
+{
+  "soldOut": {
+    "navLabel": "Ruptures",
+    "title": "Ruptures du jour",
+    "intro": "Un produit marqué en rupture reste visible sur la carte, mais ne peut plus être commandé jusqu’à la prochaine ouverture.",
+    "markSoldOut": "En rupture aujourd’hui",
+    "backInStock": "De retour",
+    "until": "Jusqu’à {time}",
+    "unavailable": "Retiré de la carte par l’administration",
+    "emptyTitle": "La carte est vide",
+    "emptyBody": "L’administrateur n’a pas encore créé de produits.",
+    "search": "Rechercher un produit"
+  },
+  "history": {
+    "title": "Mon historique",
+    "subtitle": "Commandes que vous avez traitées ces 7 derniers jours",
+    "empty": "Aucune commande traitée ces 7 derniers jours.",
+    "emptyBody": "Chaque commande que vous acceptez ou faites avancer apparaîtra ici.",
+    "items": "{count, plural, one {# article} other {# articles}}",
+    "table": "Table {n}",
+    "delivery": "Livraison",
+    "total": "Total"
+  },
+  "payslips": {
+    "title": "Mes fiches de paie",
+    "subtitle": "Paiements enregistrés par l’administration",
+    "empty": "Aucun paiement enregistré pour le moment.",
+    "emptyBody": "Vos paiements de salaire apparaîtront ici dès qu’ils seront saisis.",
+    "period": "Période",
+    "amount": "Montant",
+    "paidAt": "Payé le",
+    "method": "Mode",
+    "note": "Note",
+    "runningTotal": "Cumul",
+    "methods": {
+      "CASH": "Espèces",
+      "BANK": "Virement",
+      "CCP": "CCP",
+      "OTHER": "Autre"
+    }
+  }
+}
