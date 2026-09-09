@@ -1,0 +1,16 @@
+{
+  "title": "Create the first admin account",
+  "intro": "This page works once, while no admin exists.",
+  "token": "Setup token",
+  "tokenHelp": "The value of SETUP_TOKEN in the environment variables.",
+  "name": "Full name",
+  "username": "Username",
+  "email": "Email",
+  "password": "Password",
+  "passwordHelp": "At least 12 characters.",
+  "create": "Create admin",
+  "done": "Admin created. You can sign in now.",
+  "alreadyDone": "An admin already exists. This page is disabled.",
+  "badToken": "Wrong setup token.",
+  "goLogin": "Go to sign in"
+}

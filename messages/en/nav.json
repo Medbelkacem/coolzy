@@ -1,0 +1,22 @@
+{
+  "menu": "Menu",
+  "cart": "Cart",
+  "myOrders": "My orders",
+  "board": "Board",
+  "admin": "Admin",
+  "overview": "Today",
+  "catalogue": "Menu",
+  "categories": "Categories",
+  "products": "Products",
+  "orders": "Orders",
+  "staff": "Staff",
+  "expenses": "Expenses",
+  "stats": "Statistics",
+  "reviews": "Reviews",
+  "settings": "Shop",
+  "logout": "Sign out",
+  "myHistory": "My history",
+  "myPayslips": "My payslips",
+  "openMenu": "Open navigation",
+  "signedInAs": "Signed in as {name}"
+}

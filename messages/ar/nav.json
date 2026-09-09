@@ -1,0 +1,22 @@
+{
+  "menu": "القائمة",
+  "cart": "السلة",
+  "myOrders": "طلباتي",
+  "board": "اللوحة",
+  "admin": "الإدارة",
+  "overview": "اليوم",
+  "catalogue": "القائمة",
+  "categories": "الفئات",
+  "products": "المنتجات",
+  "orders": "الطلبات",
+  "staff": "الفريق",
+  "expenses": "المصاريف",
+  "stats": "الإحصائيات",
+  "reviews": "التقييمات",
+  "settings": "المحل",
+  "logout": "تسجيل الخروج",
+  "myHistory": "سجلّي",
+  "myPayslips": "كشوف راتبي",
+  "openMenu": "فتح التنقل",
+  "signedInAs": "متصل باسم {name}"
+}

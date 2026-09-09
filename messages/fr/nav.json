@@ -1,0 +1,22 @@
+{
+  "menu": "Menu",
+  "cart": "Panier",
+  "myOrders": "Mes commandes",
+  "board": "Tableau",
+  "admin": "Administration",
+  "overview": "Aujourd’hui",
+  "catalogue": "Carte",
+  "categories": "Catégories",
+  "products": "Produits",
+  "orders": "Commandes",
+  "staff": "Équipe",
+  "expenses": "Dépenses",
+  "stats": "Statistiques",
+  "reviews": "Avis",
+  "settings": "Boutique",
+  "logout": "Se déconnecter",
+  "myHistory": "Mon historique",
+  "myPayslips": "Mes fiches de paie",
+  "openMenu": "Ouvrir la navigation",
+  "signedInAs": "Connecté en tant que {name}"
+}

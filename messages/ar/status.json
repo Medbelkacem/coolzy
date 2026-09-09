@@ -1,0 +1,9 @@
+{
+  "RECEIVED": "تم الاستلام",
+  "APPROVED": "مقبولة",
+  "PREPARING": "قيد التحضير",
+  "READY": "جاهزة",
+  "DELIVERED": "تم التوصيل",
+  "COMPLETED": "تم التقديم",
+  "CANCELLED": "ملغاة"
+}

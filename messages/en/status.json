@@ -1,0 +1,9 @@
+{
+  "RECEIVED": "Received",
+  "APPROVED": "Approved",
+  "PREPARING": "Preparing",
+  "READY": "Ready",
+  "DELIVERED": "Delivered",
+  "COMPLETED": "Served",
+  "CANCELLED": "Cancelled"
+}

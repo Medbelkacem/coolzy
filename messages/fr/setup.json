@@ -1,0 +1,16 @@
+{
+  "title": "Créer le premier compte administrateur",
+  "intro": "Cette page ne fonctionne qu’une seule fois, tant qu’aucun administrateur n’existe.",
+  "token": "Jeton d’installation",
+  "tokenHelp": "La valeur de SETUP_TOKEN dans les variables d’environnement.",
+  "name": "Nom complet",
+  "username": "Identifiant",
+  "email": "E-mail",
+  "password": "Mot de passe",
+  "passwordHelp": "12 caractères minimum.",
+  "create": "Créer l’administrateur",
+  "done": "Administrateur créé. Vous pouvez vous connecter.",
+  "alreadyDone": "Un administrateur existe déjà. Cette page est désactivée.",
+  "badToken": "Jeton d’installation incorrect.",
+  "goLogin": "Aller à la connexion"
+}

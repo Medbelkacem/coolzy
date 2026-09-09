@@ -1,0 +1,334 @@
+// Coolzy — data model. Money is integer dinars. Times are stored in UTC and
+// bucketed in Africa/Algiers at read time. The database ships empty.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+  runtime  = "nodejs"
+  moduleFormat = "esm"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  WORKER
+}
+
+enum Locale {
+  fr
+  en
+  ar
+}
+
+enum Accent {
+  rose
+  melon
+  curacao
+  colada
+  bean
+  mint
+}
+
+enum OrderType {
+  TABLE
+  DELIVERY
+}
+
+enum OrderStatus {
+  RECEIVED
+  APPROVED
+  PREPARING
+  READY
+  DELIVERED
+  COMPLETED
+  CANCELLED
+}
+
+enum ReviewStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum ExpenseCategory {
+  SUPPLIES
+  RENT
+  SALARIES
+  UTILITIES
+  OTHER
+}
+
+enum PaymentMethod {
+  CASH
+  BANK
+  CCP
+  OTHER
+}
+
+/// Single-row table (id = 1). Created by the bootstrap step with sane defaults;
+/// everything is editable by the admin.
+model Shop {
+  id            Int      @id @default(1)
+  name          String   @default("Coolzy")
+  tagline       Json     @default("{}") // {fr,en,ar}
+  address       String   @default("")
+  phone         String   @default("")
+  instagram     String   @default("")
+  mapsUrl       String   @default("")
+  tableCount    Int      @default(0)
+  deliveryFee   Int      @default(300)
+  deliveryZoneNote Json  @default("{}") // {fr,en,ar}
+  houseRules    Json     @default("{}") // {fr,en,ar} — plain text, one rule per line
+  currencyLabel Json     @default("{}") // {fr,en,ar} e.g. DA / DA / دج
+  /// [{day:0..6, open:"07:30", close:"23:00", closed:false}] — 0 = Sunday
+  hours         Json     @default("[]")
+  /// same shape; null = same as opening hours
+  deliveryHours Json?
+  updatedAt     DateTime @updatedAt
+}
+
+model User {
+  id           String    @id @default(cuid())
+  role         Role
+  name         String
+  username     String    @unique
+  email        String?   @unique
+  phone        String?
+  passwordHash String
+  hireDate     DateTime?
+  active       Boolean   @default(true)
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  handledOrders   Order[]         @relation("HandledBy")
+  events          OrderEvent[]
+  salaryPayments  SalaryPayment[]
+  auditLogs       AuditLog[]
+}
+
+model Category {
+  id         String   @id @default(cuid())
+  slug       String   @unique
+  accent     Accent
+  sortOrder  Int      @default(0)
+  active     Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  translations CategoryTranslation[]
+  products     Product[]
+}
+
+model CategoryTranslation {
+  categoryId String
+  locale     Locale
+  name       String
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([categoryId, locale])
+}
+
+model Product {
+  id            String   @id @default(cuid())
+  categoryId    String
+  price         Int
+  costPrice     Int?
+  available     Boolean  @default(true)
+  /// set by "sold out for today"; product is sold out while now < soldOutUntil
+  soldOutUntil  DateTime?
+  sortOrder     Int      @default(0)
+  photoUrl      String?
+  photoThumbUrl String?
+  photoBlurhash String?
+  photoWidth    Int?
+  photoHeight   Int?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  category     Category             @relation(fields: [categoryId], references: [id])
+  translations ProductTranslation[]
+  orderItems   OrderItem[]
+  reviews      Review[]
+
+  @@index([categoryId, sortOrder])
+}
+
+model ProductTranslation {
+  productId   String
+  locale      Locale
+  name        String
+  description String  @default("")
+  ingredients String  @default("")
+  product     Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@id([productId, locale])
+}
+
+/// A customer is a phone number plus a browser token. No password, ever.
+model Customer {
+  id        String    @id @default(cuid())
+  phone     String    @unique
+  token     String    @unique
+  name      String?
+  claimedAt DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  orders  Order[]
+  reviews Review[]
+}
+
+model Order {
+  id            String      @id @default(cuid())
+  /// opaque token used in the receipt URL
+  token         String      @unique
+  /// browser-stored identity token: a returning customer sees their history through it
+  clientToken   String?
+  /// YYYY-MM-DD in Africa/Algiers
+  dayKey        String
+  /// daily sequential, displayed as #0142
+  number        Int
+  type          OrderType
+  status        OrderStatus @default(RECEIVED)
+  tableNumber   Int?
+  subtotal      Int
+  deliveryFee   Int         @default(0)
+  total         Int
+  note          String?
+  customerId    String?
+  customerPhone String?
+  customerName  String?
+  address       String?
+  landmark      String?
+  locale        Locale      @default(fr)
+  handledById   String?
+  cancelReason  String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  customer  Customer?    @relation(fields: [customerId], references: [id])
+  handledBy User?        @relation("HandledBy", fields: [handledById], references: [id])
+  items     OrderItem[]
+  events    OrderEvent[]
+  reviews   Review[]
+
+  @@unique([dayKey, number])
+  @@index([status, createdAt])
+  @@index([customerId, createdAt])
+  @@index([clientToken, createdAt])
+  @@index([customerPhone, createdAt])
+  @@index([createdAt])
+  @@index([updatedAt])
+}
+
+model OrderItem {
+  id           String  @id @default(cuid())
+  orderId      String
+  productId    String?
+  nameSnapshot String
+  unitPrice    Int
+  costSnapshot Int?
+  qty          Int
+  note         String?
+  order        Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product      Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+
+  @@index([orderId])
+  @@index([productId])
+}
+
+/// Append-only. Source of truth for the customer timeline and worker attribution.
+model OrderEvent {
+  id       String      @id @default(cuid())
+  orderId  String
+  status   OrderStatus
+  at       DateTime    @default(now())
+  byUserId String?
+  reason   String?
+  order    Order       @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  byUser   User?       @relation(fields: [byUserId], references: [id])
+
+  @@index([orderId, at])
+}
+
+model Review {
+  id         String       @id @default(cuid())
+  productId  String
+  orderId    String
+  customerId String?
+  rating     Int
+  comment    String       @default("")
+  status     ReviewStatus @default(PENDING)
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  product  Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  order    Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  customer Customer? @relation(fields: [customerId], references: [id], onDelete: SetNull)
+
+  @@unique([orderId, productId])
+  @@index([productId, status])
+}
+
+model Expense {
+  id              String          @id @default(cuid())
+  category        ExpenseCategory
+  amount          Int
+  date            DateTime
+  note            String          @default("")
+  salaryPaymentId String?         @unique
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  salaryPayment SalaryPayment? @relation(fields: [salaryPaymentId], references: [id], onDelete: Cascade)
+
+  @@index([date])
+}
+
+model SalaryPayment {
+  id          String        @id @default(cuid())
+  userId      String
+  amount      Int
+  periodStart DateTime
+  periodEnd   DateTime
+  paidAt      DateTime
+  method      PaymentMethod @default(CASH)
+  note        String        @default("")
+  createdAt   DateTime      @default(now())
+
+  user    User     @relation(fields: [userId], references: [id])
+  expense Expense?
+
+  @@index([userId, paidAt])
+}
+
+model AuditLog {
+  id       String   @id @default(cuid())
+  actorId  String?
+  action   String
+  entity   String
+  entityId String?
+  data     Json?
+  at       DateTime @default(now())
+  actor    User?    @relation(fields: [actorId], references: [id])
+
+  @@index([entity, at])
+}
+
+model OtpCode {
+  phone     String   @id
+  codeHash  String
+  expiresAt DateTime
+  attempts  Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+/// DB-backed sliding-window rate limiter (works across serverless instances).
+model RateLimit {
+  key         String   @id
+  windowStart DateTime
+  count       Int      @default(0)
+}

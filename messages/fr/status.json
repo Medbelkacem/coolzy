@@ -1,0 +1,9 @@
+{
+  "RECEIVED": "Reçue",
+  "APPROVED": "Acceptée",
+  "PREPARING": "En préparation",
+  "READY": "Prête",
+  "DELIVERED": "Livrée",
+  "COMPLETED": "Servie",
+  "CANCELLED": "Annulée"
+}
