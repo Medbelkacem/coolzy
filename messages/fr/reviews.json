@@ -1,0 +1,17 @@
+{
+  "title": "Notez vos boissons",
+  "body": "Votre avis est publié après validation par l’équipe.",
+  "rating": "Note",
+  "stars": "{n, plural, one {# étoile} other {# étoiles}}",
+  "comment": "Commentaire",
+  "commentPlaceholder": "Un mot sur ce que vous avez aimé, ou pas.",
+  "submit": "Envoyer l’avis",
+  "update": "Modifier l’avis",
+  "saved": "Avis enregistré.",
+  "pending": "En attente de validation",
+  "published": "Publié",
+  "rejected": "Non publié",
+  "editUntil": "Modifiable jusqu’au {date} à {time}",
+  "windowClosed": "Cet avis n’est plus modifiable.",
+  "yourReview": "Votre avis"
+}

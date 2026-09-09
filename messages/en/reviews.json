@@ -1,0 +1,17 @@
+{
+  "title": "Rate your drinks",
+  "body": "Your review is published once the team approves it.",
+  "rating": "Rating",
+  "stars": "{n, plural, one {# star} other {# stars}}",
+  "comment": "Comment",
+  "commentPlaceholder": "A word about what you liked, or didn’t.",
+  "submit": "Send review",
+  "update": "Update review",
+  "saved": "Review saved.",
+  "pending": "Awaiting approval",
+  "published": "Published",
+  "rejected": "Not published",
+  "editUntil": "Editable until {date} at {time}",
+  "windowClosed": "This review can no longer be edited.",
+  "yourReview": "Your review"
+}

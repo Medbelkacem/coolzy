@@ -1,0 +1,35 @@
+/* Receipt & tracking — the dark room. Status colours are functional only. */
+.receipt-rule { border: 0; border-top: 1px dashed var(--hairline); margin: 0; }
+.timeline { display: grid; grid-template-columns: 24px 1fr; column-gap: 12px; }
+.timeline-dot {
+  width: 24px; height: 24px; border-radius: 999px; border: 2px solid var(--hairline);
+  display: grid; place-items: center; background: var(--bg); color: var(--bg);
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+.timeline-dot[data-state="done"] { background: var(--fg); border-color: var(--fg); }
+.timeline-dot[data-state="current"] { background: var(--color-ok); border-color: var(--color-ok); color: #fff; }
+.timeline-dot[data-state="cancelled"] { background: var(--color-stop); border-color: var(--color-stop); color: #fff; }
+.timeline-line { width: 2px; min-height: 22px; margin: 2px auto; background: var(--hairline); }
+.timeline-line[data-state="done"] { background: var(--fg); }
+.live-dot { width: 8px; height: 8px; border-radius: 999px; background: var(--color-ok); display: inline-block; }
+.live-dot[data-live="false"] { background: var(--color-warn); }
+
+.stars { display: inline-flex; gap: 2px; position: relative; }
+.stars label { width: 44px; height: 44px; display: grid; place-items: center; cursor: pointer; color: var(--fg-muted); border-radius: 8px; }
+.stars input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.stars label[data-on="true"] { color: var(--color-colada); }
+.stars label[data-on="true"] svg { fill: currentColor; }
+.stars label:has(input:focus-visible) { outline: 2px solid var(--fg); outline-offset: 2px; }
+
+/* Print view: paper, black ink, 80 mm column. */
+.print-page { background: #fff; color: #000; min-height: 100dvh; padding: 12px; }
+.print-page .thermal { width: 72mm; max-width: 100%; margin: 0 auto; font-size: 12px; line-height: 1.35; font-family: var(--font-sans); }
+.print-page[lang="ar"] .thermal { font-family: var(--font-sans-ar); line-height: 1.55; }
+.print-page .thermal h1 { font-family: var(--font-display); font-style: italic; font-size: 22px; letter-spacing: -0.02em; }
+.print-page[lang="ar"] .thermal h1 { font-family: var(--font-display-ar); font-style: normal; letter-spacing: 0; }
+.print-page .thermal hr { border: 0; border-top: 1px dashed #000; margin: 6px 0; }
+.print-page .thermal table { width: 100%; border-collapse: collapse; }
+.print-page .thermal td { vertical-align: top; padding: 1px 0; }
+.print-page .thermal td.num { text-align: end; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.print-page[data-pdf="1"] { min-height: 0; padding: 4px; }
+@media print { .print-page { padding: 0; min-height: auto; } }
