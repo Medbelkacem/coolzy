@@ -18,7 +18,9 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   serverExternalPackages: ["argon2", "sharp", "puppeteer-core", "@sparticuz/chromium", "@prisma/client", "@prisma/adapter-pg", "pg"],
   outputFileTracingIncludes: {
-    "/r/[token]/pdf": ["./node_modules/@sparticuz/chromium/bin/**"],
+    // pnpm keeps packages under .pnpm and symlinks them; tracing must point at
+    // the real files or Vercel rejects the function package.
+    "/r/[token]/pdf": ["./node_modules/.pnpm/@sparticuz+chromium@*/node_modules/@sparticuz/chromium/bin/**"],
   },
   images: {
     formats: ["image/avif", "image/webp"],
