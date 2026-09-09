@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { formatDA, parseDA } from "@/lib/money";
-import { normalizePhone, formatPhone } from "@/lib/customer";
+import { normalizePhone, formatPhone } from "@/lib/phone";
 import { openState, DEFAULT_HOURS, dayKey, nextOpening } from "@/lib/time";
 
 describe("money", () => {

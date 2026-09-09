@@ -8,7 +8,7 @@ import "./globals.css";
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("common");
   return {
-    title: { default: t("appName"), template: `%s · ${t("appName")}` },
+    title: { default: t("appName"), template: `%s — ${t("appName")}` },
     description: `${t("tagline")} — ${t("subline")}`,
     manifest: "/manifest.webmanifest",
     appleWebApp: { capable: true, title: t("appName"), statusBarStyle: "black-translucent" },

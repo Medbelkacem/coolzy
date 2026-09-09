@@ -114,6 +114,7 @@ html[lang="ar"] .font-display {
   outline-color: var(--color-oat);
 }
 
+@layer components {
 /* Surfaces */
 .surface {
   background: var(--bg-raised);
@@ -197,6 +198,8 @@ html[lang="ar"] .font-display {
 .no-scrollbar { scrollbar-width: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .safe-bottom { padding-bottom: max(16px, env(safe-area-inset-bottom)); }
+
+}
 
 /* Motion: only in response to action. Reduced motion collapses to instant. */
 @keyframes flash-once {
