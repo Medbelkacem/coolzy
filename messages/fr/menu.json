@@ -1,0 +1,41 @@
+{
+  "home": "Accueil",
+  "tagline": "your safe place",
+  "myOrders": "Mes commandes",
+  "cartWithCount": "{count, plural, =0 {Panier vide} one {Panier, # article} other {Panier, # articles}}",
+  "openUntil": "Ouvert jusqu’à {time}",
+  "closed": "Fermé",
+  "opensAt": "Ouvre à {time}",
+  "opensTomorrow": "Ouvre demain à {time}",
+  "opensOn": "Ouvre {day} à {time}",
+  "search": "Rechercher dans la carte",
+  "searchPlaceholder": "Un produit, un ingrédient…",
+  "categories": "Catégories",
+  "noResults": "Rien pour « {q} ». Essayez un autre mot.",
+  "categoryEmpty": "Bientôt dans cette catégorie.",
+  "soldOut": "Épuisé pour aujourd’hui",
+  "add": "Ajouter {name} au panier",
+  "addAgain": "Ajouter encore {name} ({count} au panier)",
+  "addToCart": "Ajouter",
+  "emptyTitle": "La carte s’écrit en ce moment",
+  "emptyBody": "Nos boissons arrivent très vite. Passez au comptoir en attendant.",
+  "dismiss": "Fermer",
+  "directions": "Itinéraire",
+  "hours": "Horaires",
+  "closedDay": "Fermé",
+  "houseRules": "Chez Coolzy",
+  "rules": {
+    "laptops": "Les ordinateurs portables ne sont pas admis de 16 h à 20 h.",
+    "minimum": "Chaque personne commande au moins un article de la carte. L’eau et les sodas ne comptent pas.",
+    "birthday": "Les anniversaires se préparent à l’avance avec l’équipe. Sans réservation, nous ne pourrons pas les accueillir."
+  },
+  "days": {
+    "0": "Dimanche",
+    "1": "Lundi",
+    "2": "Mardi",
+    "3": "Mercredi",
+    "4": "Jeudi",
+    "5": "Vendredi",
+    "6": "Samedi"
+  }
+}

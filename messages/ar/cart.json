@@ -1,0 +1,25 @@
+{
+  "title": "السلة",
+  "close": "إغلاق",
+  "empty": "سلتك فارغة. أضف مشروبًا من القائمة.",
+  "openCart": "فتح السلة",
+  "itemsWord": "{count, plural, one {منتج} two {منتجان} few {منتجات} many {منتجًا} other {منتج}}",
+  "quantity": "الكمية",
+  "increase": "زيادة واحد",
+  "decrease": "إنقاص واحد",
+  "remove": "إزالة",
+  "itemNote": "ملاحظة لهذا المنتج",
+  "itemNotePlaceholder": "بدون سكر، ثلج أقل…",
+  "quick": {
+    "noSugar": "بدون سكر",
+    "lessIce": "ثلج أقل",
+    "extraShot": "جرعة إضافية",
+    "noIce": "بدون ثلج"
+  },
+  "orderNote": "ملاحظة للفريق",
+  "orderNotePlaceholder": "حساسية، تفضيل، أي شيء يجب أن نعرفه",
+  "subtotal": "المجموع الفرعي",
+  "checkout": "اطلب",
+  "soldOut": "نفد لهذا اليوم",
+  "removeSoldOut": "أزل المنتجات النافدة للمتابعة."
+}

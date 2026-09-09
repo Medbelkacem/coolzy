@@ -1,0 +1,25 @@
+{
+  "title": "Cart",
+  "close": "Close",
+  "empty": "Your cart is empty. Add a drink from the menu.",
+  "openCart": "Open cart",
+  "itemsWord": "{count, plural, one {item} other {items}}",
+  "quantity": "Quantity",
+  "increase": "Add one",
+  "decrease": "Remove one",
+  "remove": "Remove",
+  "itemNote": "Note for this item",
+  "itemNotePlaceholder": "No sugar, less ice…",
+  "quick": {
+    "noSugar": "no sugar",
+    "lessIce": "less ice",
+    "extraShot": "extra shot",
+    "noIce": "no ice"
+  },
+  "orderNote": "Note for the team",
+  "orderNotePlaceholder": "Allergy, preference, anything we should know",
+  "subtotal": "Subtotal",
+  "checkout": "Checkout",
+  "soldOut": "Sold out for today",
+  "removeSoldOut": "Remove sold-out items to continue."
+}

@@ -1,0 +1,25 @@
+{
+  "title": "Panier",
+  "close": "Fermer",
+  "empty": "Votre panier est vide. Ajoutez une boisson depuis la carte.",
+  "openCart": "Ouvrir le panier",
+  "itemsWord": "{count, plural, one {article} other {articles}}",
+  "quantity": "Quantité",
+  "increase": "Ajouter un",
+  "decrease": "Retirer un",
+  "remove": "Retirer",
+  "itemNote": "Note pour cet article",
+  "itemNotePlaceholder": "Sans sucre, moins de glace…",
+  "quick": {
+    "noSugar": "sans sucre",
+    "lessIce": "moins de glace",
+    "extraShot": "extra shot",
+    "noIce": "sans glace"
+  },
+  "orderNote": "Note pour l’équipe",
+  "orderNotePlaceholder": "Allergie, préférence, tout ce qu’il faut savoir",
+  "subtotal": "Sous-total",
+  "checkout": "Commander",
+  "soldOut": "Épuisé pour aujourd’hui",
+  "removeSoldOut": "Retirez les articles épuisés pour continuer."
+}

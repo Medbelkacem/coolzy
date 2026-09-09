@@ -1,0 +1,41 @@
+{
+  "home": "Home",
+  "tagline": "your safe place",
+  "myOrders": "My orders",
+  "cartWithCount": "{count, plural, =0 {Cart, empty} one {Cart, # item} other {Cart, # items}}",
+  "openUntil": "Open until {time}",
+  "closed": "Closed",
+  "opensAt": "Opens at {time}",
+  "opensTomorrow": "Opens tomorrow at {time}",
+  "opensOn": "Opens {day} at {time}",
+  "search": "Search the menu",
+  "searchPlaceholder": "A drink, an ingredient…",
+  "categories": "Categories",
+  "noResults": "Nothing for “{q}”. Try another word.",
+  "categoryEmpty": "Coming soon in this category.",
+  "soldOut": "Sold out for today",
+  "add": "Add {name} to cart",
+  "addAgain": "Add {name} again ({count} in cart)",
+  "addToCart": "Add",
+  "emptyTitle": "The menu is being written",
+  "emptyBody": "Our drinks are on their way. Order at the counter in the meantime.",
+  "dismiss": "Dismiss",
+  "directions": "Directions",
+  "hours": "Hours",
+  "closedDay": "Closed",
+  "houseRules": "At Coolzy",
+  "rules": {
+    "laptops": "Laptops aren’t permitted from 4 PM to 8 PM.",
+    "minimum": "Each guest orders at least one menu item. Water and soft drinks don’t count.",
+    "birthday": "Birthdays are arranged with the team in advance. We can’t accommodate unplanned ones."
+  },
+  "days": {
+    "0": "Sunday",
+    "1": "Monday",
+    "2": "Tuesday",
+    "3": "Wednesday",
+    "4": "Thursday",
+    "5": "Friday",
+    "6": "Saturday"
+  }
+}
