@@ -1,0 +1,88 @@
+{
+  "title": "Commandes",
+  "subtitle": "{count, plural, =0 {Aucune commande} one {# commande} other {# commandes}} pour cette période",
+  "filters": {
+    "period": "Période",
+    "status": "Statut",
+    "type": "Type",
+    "worker": "Employé",
+    "table": "Table",
+    "search": "Rechercher",
+    "searchPlaceholder": "N°, nom ou téléphone",
+    "from": "Du",
+    "to": "Au",
+    "apply": "Filtrer",
+    "reset": "Réinitialiser",
+    "export": "Exporter CSV",
+    "any": "Tous",
+    "anyWorker": "Tous les employés",
+    "ranges": {
+      "today": "Aujourd’hui",
+      "yesterday": "Hier",
+      "week": "Cette semaine",
+      "month": "Ce mois",
+      "7d": "7 derniers jours",
+      "30d": "30 derniers jours",
+      "custom": "Personnalisé",
+      "all": "Tout"
+    }
+  },
+  "types": {
+    "TABLE": "Table",
+    "DELIVERY": "Livraison"
+  },
+  "columns": {
+    "number": "N°",
+    "customer": "Client",
+    "products": "Produits",
+    "total": "Total",
+    "where": "Table / livraison",
+    "when": "Date",
+    "worker": "Employé",
+    "status": "Statut"
+  },
+  "tableN": "Table {n}",
+  "delivery": "Livraison",
+  "anonymous": "Client sur place",
+  "noWorker": "—",
+  "emptyTitle": "Aucune commande pour ces critères",
+  "emptyBody": "Élargissez la période ou retirez un filtre.",
+  "page": "Page {page} sur {pages}",
+  "prev": "Précédent",
+  "next": "Suivant",
+  "detail": {
+    "title": "Commande {number}",
+    "placed": "Passée le {date}",
+    "items": "Articles",
+    "note": "Note de commande",
+    "itemNote": "Note",
+    "customer": "Client",
+    "phone": "Téléphone",
+    "address": "Adresse",
+    "landmark": "Repère",
+    "table": "Table {n}",
+    "subtotal": "Sous-total",
+    "deliveryFee": "Frais de livraison",
+    "total": "Total",
+    "timeline": "Historique",
+    "by": "par {name}",
+    "system": "client",
+    "cancelReason": "Motif d’annulation",
+    "receipt": "Voir le reçu client",
+    "handledBy": "Traitée par",
+    "locale": "Langue du client",
+    "back": "Toutes les commandes"
+  },
+  "override": {
+    "title": "Forcer le statut",
+    "body": "Réservé à l’administrateur. Chaque changement est enregistré avec votre nom.",
+    "status": "Nouveau statut",
+    "reason": "Motif",
+    "reasonHelp": "Obligatoire pour une annulation, recommandé sinon.",
+    "submit": "Appliquer",
+    "done": "Statut mis à jour."
+  },
+  "export": {
+    "filename": "coolzy-commandes"
+  }
+}

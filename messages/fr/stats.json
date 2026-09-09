@@ -1,0 +1,66 @@
+{
+  "title": "Statistiques",
+  "subtitle": "Les chiffres que vous demandez vraiment. Chaque valeur indique sa période.",
+  "period": "Période : {from} – {to}",
+  "previous": "Période précédente : {from} – {to}",
+  "vsPrevious": "{delta} vs période précédente",
+  "noPrevious": "Rien sur la période précédente",
+  "emptyTitle": "Aucune commande sur cette période",
+  "emptyBody": "Il n’y a rien à calculer. Choisissez une autre période ou attendez les premières commandes.",
+  "cancelledNote": "{count, plural, =0 {Aucune commande annulée.} one {# commande annulée, exclue des ventes.} other {# commandes annulées, exclues des ventes.}}",
+  "footnote": "Ventes = commandes non annulées, livraison comprise. Bénéfice = ventes − dépenses de la période. Heure d’Alger.",
+  "totals": {
+    "sales": "Ventes",
+    "expenses": "Dépenses",
+    "profit": "Bénéfice net",
+    "margin": "Marge brute",
+    "marginNone": "Renseignez le prix de revient des produits pour voir la marge.",
+    "marginPartial": "{count, plural, one {# article sans prix de revient, non compté.} other {# articles sans prix de revient, non comptés.}}",
+    "orders": "Commandes",
+    "avg": "Panier moyen"
+  },
+  "revenue": {
+    "title": "Chiffre d’affaires",
+    "day": "Par jour",
+    "week": "Par semaine",
+    "month": "Par mois",
+    "empty": "Aucune vente sur cette période."
+  },
+  "products": {
+    "title": "Meilleures ventes",
+    "product": "Produit",
+    "qty": "Quantité",
+    "revenue": "Ventes",
+    "empty": "Aucun produit vendu sur cette période.",
+    "deleted": "Produit supprimé"
+  },
+  "categories": {
+    "title": "Ventes par catégorie",
+    "uncategorized": "Sans catégorie",
+    "empty": "Aucune vente sur cette période."
+  },
+  "split": {
+    "title": "Sur place et livraison",
+    "table": "Sur place",
+    "delivery": "Livraison",
+    "deliveryRevenue": "Ventes en livraison",
+    "deliveryFees": "Frais de livraison encaissés",
+    "ordersCount": "{count, plural, =0 {0 commande} one {# commande} other {# commandes}}"
+  },
+  "salaries": {
+    "title": "Dépenses de personnel",
+    "subtitle": "Salaires versés sur la période, par personne.",
+    "empty": "Aucun salaire versé sur cette période.",
+    "payments": "{count, plural, one {# paiement} other {# paiements}}",
+    "total": "Total"
+  },
+  "heatmap": {
+    "title": "Heures de pointe",
+    "subtitle": "Commandes par jour et par heure. C’est ce qui décide des plannings.",
+    "peak": "Pic : {day} à {hour} h, {count, plural, one {# commande} other {# commandes}}",
+    "empty": "Pas assez de commandes pour dessiner la carte.",
+    "cell": "{day} {hour} h : {count, plural, =0 {aucune commande} one {# commande} other {# commandes}}"
+  },
+  "ranges": { "custom": "Personnalisé", "from": "Du", "to": "Au", "apply": "Appliquer" },
+  "days": { "0": "Dim", "1": "Lun", "2": "Mar", "3": "Mer", "4": "Jeu", "5": "Ven", "6": "Sam" }
+}

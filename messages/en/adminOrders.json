@@ -1,0 +1,88 @@
+{
+  "title": "Orders",
+  "subtitle": "{count, plural, =0 {No orders} one {# order} other {# orders}} in this period",
+  "filters": {
+    "period": "Period",
+    "status": "Status",
+    "type": "Type",
+    "worker": "Worker",
+    "table": "Table",
+    "search": "Search",
+    "searchPlaceholder": "Number, name or phone",
+    "from": "From",
+    "to": "To",
+    "apply": "Filter",
+    "reset": "Reset",
+    "export": "Export CSV",
+    "any": "All",
+    "anyWorker": "All workers",
+    "ranges": {
+      "today": "Today",
+      "yesterday": "Yesterday",
+      "week": "This week",
+      "month": "This month",
+      "7d": "Last 7 days",
+      "30d": "Last 30 days",
+      "custom": "Custom",
+      "all": "All time"
+    }
+  },
+  "types": {
+    "TABLE": "Table",
+    "DELIVERY": "Delivery"
+  },
+  "columns": {
+    "number": "No.",
+    "customer": "Customer",
+    "products": "Products",
+    "total": "Total",
+    "where": "Table / delivery",
+    "when": "Date",
+    "worker": "Worker",
+    "status": "Status"
+  },
+  "tableN": "Table {n}",
+  "delivery": "Delivery",
+  "anonymous": "Walk-in customer",
+  "noWorker": "—",
+  "emptyTitle": "No orders match these filters",
+  "emptyBody": "Widen the period or remove a filter.",
+  "page": "Page {page} of {pages}",
+  "prev": "Previous",
+  "next": "Next",
+  "detail": {
+    "title": "Order {number}",
+    "placed": "Placed on {date}",
+    "items": "Items",
+    "note": "Order note",
+    "itemNote": "Note",
+    "customer": "Customer",
+    "phone": "Phone",
+    "address": "Address",
+    "landmark": "Landmark",
+    "table": "Table {n}",
+    "subtotal": "Subtotal",
+    "deliveryFee": "Delivery fee",
+    "total": "Total",
+    "timeline": "Timeline",
+    "by": "by {name}",
+    "system": "customer",
+    "cancelReason": "Cancellation reason",
+    "receipt": "View customer receipt",
+    "handledBy": "Handled by",
+    "locale": "Customer language",
+    "back": "All orders"
+  },
+  "override": {
+    "title": "Override status",
+    "body": "Admin only. Every change is recorded with your name.",
+    "status": "New status",
+    "reason": "Reason",
+    "reasonHelp": "Required for a cancellation, recommended otherwise.",
+    "submit": "Apply",
+    "done": "Status updated."
+  },
+  "export": {
+    "filename": "coolzy-orders"
+  }
+}

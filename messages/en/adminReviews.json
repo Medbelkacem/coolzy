@@ -1,0 +1,23 @@
+{
+  "title": "Reviews",
+  "subtitle": "A review only appears on the menu after you approve it.",
+  "tabs": {
+    "PENDING": "Pending",
+    "APPROVED": "Published",
+    "REJECTED": "Rejected"
+  },
+  "approve": "Approve",
+  "reject": "Reject",
+  "delete": "Delete",
+  "deleteConfirm": "Delete this review permanently?",
+  "anonymous": "Anonymous",
+  "order": "Order {number}",
+  "rating": "{rating} out of 5",
+  "noComment": "No comment",
+  "empty": {
+    "PENDING": "No reviews to moderate",
+    "APPROVED": "No published reviews",
+    "REJECTED": "No rejected reviews"
+  },
+  "emptyBody": "Customers can rate their drinks once an order is served."
+}

@@ -1,0 +1,33 @@
+{
+  "overview": {
+    "title": "Today",
+    "subtitle": "{date}",
+    "sales": "Sales",
+    "orders": "Orders",
+    "avg": "Average order",
+    "open": "In progress",
+    "emptyTitle": "No orders yet today",
+    "emptyBody": "As soon as a customer orders, it shows up here and on the board.",
+    "setupTitle": "The shop is empty",
+    "setupBody": "Three steps to take the first order.",
+    "step1": "Fill in the shop: hours, table count, phone.",
+    "step2": "Create the categories and products of the menu.",
+    "step3": "Add a worker account for the board.",
+    "goSettings": "Open settings",
+    "goMenu": "Build the menu",
+    "goStaff": "Add a worker",
+    "recent": "Latest orders",
+    "viewAll": "All orders",
+    "topToday": "Best sellers today",
+    "boardLink": "Open the board",
+    "periodToday": "Today, {date}",
+    "openHint": "Live on the board",
+    "avgHint": "Per order, today",
+    "salesHint": "Orders not cancelled",
+    "noAvg": "—",
+    "qtySold": "{qty} sold",
+    "stepDone": "Done",
+    "orderRow": "{items}",
+    "openOrder": "Open"
+  }
+}

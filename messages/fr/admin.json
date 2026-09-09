@@ -1,0 +1,33 @@
+{
+  "overview": {
+    "title": "Aujourd’hui",
+    "subtitle": "{date}",
+    "sales": "Ventes",
+    "orders": "Commandes",
+    "avg": "Panier moyen",
+    "open": "En cours",
+    "emptyTitle": "Aucune commande aujourd’hui pour l’instant",
+    "emptyBody": "Dès qu’un client commande, elle apparaît ici et sur le tableau.",
+    "setupTitle": "La boutique est vide",
+    "setupBody": "Trois étapes pour prendre la première commande.",
+    "step1": "Renseigner la boutique : horaires, nombre de tables, téléphone.",
+    "step2": "Créer les catégories et les produits de la carte.",
+    "step3": "Ajouter un compte employé pour le tableau.",
+    "goSettings": "Ouvrir les réglages",
+    "goMenu": "Construire la carte",
+    "goStaff": "Ajouter un employé",
+    "recent": "Dernières commandes",
+    "viewAll": "Toutes les commandes",
+    "topToday": "Les plus vendus aujourd’hui",
+    "boardLink": "Ouvrir le tableau",
+    "periodToday": "Aujourd’hui, {date}",
+    "openHint": "En cours sur le tableau",
+    "avgHint": "Par commande, aujourd’hui",
+    "salesHint": "Commandes non annulées",
+    "noAvg": "—",
+    "qtySold": "{qty} vendus",
+    "stepDone": "Fait",
+    "orderRow": "{items}",
+    "openOrder": "Ouvrir"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "title": "Dépenses",
+  "subtitle": "Sans elles, le bénéfice ne veut rien dire. Les salaires s’ajoutent tout seuls.",
+  "add": "Ajouter une dépense",
+  "newTitle": "Nouvelle dépense",
+  "editTitle": "Modifier la dépense",
+  "category": "Catégorie",
+  "categories": {
+    "SUPPLIES": "Fournitures",
+    "RENT": "Loyer",
+    "SALARIES": "Salaires",
+    "UTILITIES": "Charges",
+    "OTHER": "Autre"
+  },
+  "allCategories": "Toutes les catégories",
+  "amount": "Montant (DA)",
+  "date": "Date",
+  "note": "Note",
+  "total": "Total des dépenses",
+  "byCategory": "Par catégorie",
+  "count": "{count, plural, =0 {Aucune dépense} one {# dépense} other {# dépenses}}",
+  "emptyTitle": "Aucune dépense sur cette période",
+  "emptyBody": "Ajoutez les fournitures, le loyer et les charges pour que les statistiques calculent un vrai bénéfice.",
+  "fromSalaryHelp": "Créée depuis la fiche de l’employé. Modifiez-la depuis Équipe.",
+  "delete": "Supprimer",
+  "deleteConfirm": "Supprimer cette dépense ?",
+  "save": "Enregistrer",
+  "cancel": "Annuler",
+  "period": "Période",
+  "apply": "Appliquer",
+  "saved": "Dépense enregistrée."
+}

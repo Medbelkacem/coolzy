@@ -1,0 +1,88 @@
+{
+  "title": "الطلبات",
+  "subtitle": "{count, plural, =0 {لا توجد طلبات} one {طلب واحد} two {طلبان} few {# طلبات} many {# طلبًا} other {# طلب}} في هذه الفترة",
+  "filters": {
+    "period": "الفترة",
+    "status": "الحالة",
+    "type": "النوع",
+    "worker": "الموظف",
+    "table": "الطاولة",
+    "search": "بحث",
+    "searchPlaceholder": "الرقم أو الاسم أو الهاتف",
+    "from": "من",
+    "to": "إلى",
+    "apply": "تصفية",
+    "reset": "إعادة ضبط",
+    "export": "تصدير CSV",
+    "any": "الكل",
+    "anyWorker": "كل الموظفين",
+    "ranges": {
+      "today": "اليوم",
+      "yesterday": "أمس",
+      "week": "هذا الأسبوع",
+      "month": "هذا الشهر",
+      "7d": "آخر 7 أيام",
+      "30d": "آخر 30 يومًا",
+      "custom": "مخصص",
+      "all": "كل الفترات"
+    }
+  },
+  "types": {
+    "TABLE": "طاولة",
+    "DELIVERY": "توصيل"
+  },
+  "columns": {
+    "number": "الرقم",
+    "customer": "الزبون",
+    "products": "المنتجات",
+    "total": "الإجمالي",
+    "where": "طاولة / توصيل",
+    "when": "التاريخ",
+    "worker": "الموظف",
+    "status": "الحالة"
+  },
+  "tableN": "طاولة {n}",
+  "delivery": "توصيل",
+  "anonymous": "زبون في المحل",
+  "noWorker": "—",
+  "emptyTitle": "لا توجد طلبات تطابق هذه المعايير",
+  "emptyBody": "وسّع الفترة أو أزل أحد المرشحات.",
+  "page": "صفحة {page} من {pages}",
+  "prev": "السابق",
+  "next": "التالي",
+  "detail": {
+    "title": "الطلب {number}",
+    "placed": "أُرسل في {date}",
+    "items": "العناصر",
+    "note": "ملاحظة الطلب",
+    "itemNote": "ملاحظة",
+    "customer": "الزبون",
+    "phone": "الهاتف",
+    "address": "العنوان",
+    "landmark": "معلم قريب",
+    "table": "طاولة {n}",
+    "subtotal": "المجموع الفرعي",
+    "deliveryFee": "رسوم التوصيل",
+    "total": "الإجمالي",
+    "timeline": "السجل الزمني",
+    "by": "بواسطة {name}",
+    "system": "الزبون",
+    "cancelReason": "سبب الإلغاء",
+    "receipt": "عرض إيصال الزبون",
+    "handledBy": "عالجها",
+    "locale": "لغة الزبون",
+    "back": "كل الطلبات"
+  },
+  "override": {
+    "title": "فرض الحالة",
+    "body": "للمدير فقط. يُسجَّل كل تغيير باسمك.",
+    "status": "الحالة الجديدة",
+    "reason": "السبب",
+    "reasonHelp": "إلزامي عند الإلغاء، ومستحسن في غير ذلك.",
+    "submit": "تطبيق",
+    "done": "تم تحديث الحالة."
+  },
+  "export": {
+    "filename": "coolzy-orders"
+  }
+}

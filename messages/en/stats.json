@@ -1,0 +1,66 @@
+{
+  "title": "Statistics",
+  "subtitle": "The numbers you actually ask for. Every figure states its period.",
+  "period": "Period: {from} – {to}",
+  "previous": "Previous period: {from} – {to}",
+  "vsPrevious": "{delta} vs previous period",
+  "noPrevious": "Nothing in the previous period",
+  "emptyTitle": "No orders in this period",
+  "emptyBody": "There is nothing to compute. Pick another period or wait for the first orders.",
+  "cancelledNote": "{count, plural, =0 {No cancelled orders.} one {# cancelled order, excluded from sales.} other {# cancelled orders, excluded from sales.}}",
+  "footnote": "Sales = non-cancelled orders, delivery included. Profit = sales − expenses of the period. Algiers time.",
+  "totals": {
+    "sales": "Sales",
+    "expenses": "Expenses",
+    "profit": "Net profit",
+    "margin": "Gross margin",
+    "marginNone": "Set a cost price on products to see the margin.",
+    "marginPartial": "{count, plural, one {# item without a cost price, not counted.} other {# items without a cost price, not counted.}}",
+    "orders": "Orders",
+    "avg": "Average order"
+  },
+  "revenue": {
+    "title": "Revenue",
+    "day": "By day",
+    "week": "By week",
+    "month": "By month",
+    "empty": "No sales in this period."
+  },
+  "products": {
+    "title": "Best sellers",
+    "product": "Product",
+    "qty": "Quantity",
+    "revenue": "Sales",
+    "empty": "No product sold in this period.",
+    "deleted": "Deleted product"
+  },
+  "categories": {
+    "title": "Sales by category",
+    "uncategorized": "Uncategorised",
+    "empty": "No sales in this period."
+  },
+  "split": {
+    "title": "Table and delivery",
+    "table": "Table",
+    "delivery": "Delivery",
+    "deliveryRevenue": "Delivery sales",
+    "deliveryFees": "Delivery fees collected",
+    "ordersCount": "{count, plural, =0 {0 orders} one {# order} other {# orders}}"
+  },
+  "salaries": {
+    "title": "Staff expenses",
+    "subtitle": "Salaries paid in the period, per person.",
+    "empty": "No salary paid in this period.",
+    "payments": "{count, plural, one {# payment} other {# payments}}",
+    "total": "Total"
+  },
+  "heatmap": {
+    "title": "Busiest hours",
+    "subtitle": "Orders per weekday and hour. This is what decides staffing.",
+    "peak": "Peak: {day} at {hour}:00, {count, plural, one {# order} other {# orders}}",
+    "empty": "Not enough orders to draw the map yet.",
+    "cell": "{day} {hour}:00: {count, plural, =0 {no orders} one {# order} other {# orders}}"
+  },
+  "ranges": { "custom": "Custom", "from": "From", "to": "To", "apply": "Apply" },
+  "days": { "0": "Sun", "1": "Mon", "2": "Tue", "3": "Wed", "4": "Thu", "5": "Fri", "6": "Sat" }
+}

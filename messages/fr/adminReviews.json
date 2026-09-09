@@ -1,0 +1,23 @@
+{
+  "title": "Avis",
+  "subtitle": "Un avis n’apparaît sur la carte qu’après votre approbation.",
+  "tabs": {
+    "PENDING": "En attente",
+    "APPROVED": "Publiés",
+    "REJECTED": "Refusés"
+  },
+  "approve": "Approuver",
+  "reject": "Refuser",
+  "delete": "Supprimer",
+  "deleteConfirm": "Supprimer cet avis définitivement ?",
+  "anonymous": "Anonyme",
+  "order": "Commande {number}",
+  "rating": "{rating} sur 5",
+  "noComment": "Sans commentaire",
+  "empty": {
+    "PENDING": "Aucun avis à modérer",
+    "APPROVED": "Aucun avis publié",
+    "REJECTED": "Aucun avis refusé"
+  },
+  "emptyBody": "Les clients peuvent noter leurs boissons une fois la commande servie."
+}

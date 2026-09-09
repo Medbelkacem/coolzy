@@ -1,0 +1,32 @@
+{
+  "title": "Expenses",
+  "subtitle": "Without them, profit means nothing. Salaries post themselves.",
+  "add": "Add an expense",
+  "newTitle": "New expense",
+  "editTitle": "Edit expense",
+  "category": "Category",
+  "categories": {
+    "SUPPLIES": "Supplies",
+    "RENT": "Rent",
+    "SALARIES": "Salaries",
+    "UTILITIES": "Utilities",
+    "OTHER": "Other"
+  },
+  "allCategories": "All categories",
+  "amount": "Amount (DA)",
+  "date": "Date",
+  "note": "Note",
+  "total": "Total expenses",
+  "byCategory": "By category",
+  "count": "{count, plural, =0 {No expenses} one {# expense} other {# expenses}}",
+  "emptyTitle": "No expenses in this period",
+  "emptyBody": "Add supplies, rent and utilities so the statistics compute a real profit.",
+  "fromSalaryHelp": "Created from the worker’s page. Edit it from Team.",
+  "delete": "Delete",
+  "deleteConfirm": "Delete this expense?",
+  "save": "Save",
+  "cancel": "Cancel",
+  "period": "Period",
+  "apply": "Apply",
+  "saved": "Expense saved."
+}
