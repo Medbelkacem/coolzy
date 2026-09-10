@@ -80,6 +80,8 @@ Then sign in at `/login`, open **Boutique** (settings) to set hours, table count
 
 Dark room, lit cup: the client menu is a warm black room where only the drink photography carries colour, one accent per category. The staff dashboards flip to oat paper, calm and readable across an eight-hour shift. Fraunces for display, Instrument Sans for interface, IBM Plex Sans Arabic and Noto Naskh Arabic for Arabic. No 3D, no gradients, no glow.
 
+The full design reference — palette tokens, type choices, wireframes, and the decisions that were revised during the build — is in [docs/design.md](docs/design.md).
+
 ## Licence
 
 MIT — see [LICENSE](LICENSE).
