@@ -6,6 +6,7 @@ import { StatusChip } from "@/components/ui/StatusChip";
 import { fmtDate, fmtTime } from "@/lib/time";
 import { ReceiptBody, type ShopInfo } from "./ReceiptBody";
 import { Timeline } from "./Timeline";
+import { OrderNumber } from "@/components/ui/OrderNumber";
 
 /**
  * Keeps the order fresh: SSE first, plain polling after two stream failures.
@@ -73,7 +74,7 @@ export function ReceiptLive({ initial, shop, flow, children }: { initial: OrderD
       <section className="surface flex flex-col gap-3 p-5">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <h1 className="font-display text-3xl leading-none">{order.display}</h1>
+            <h1 className="font-display text-3xl leading-none"><OrderNumber n={order.display} /></h1>
             <p className="mt-2 text-sm text-[var(--fg-muted)]">{t("placedAt", { date: fmtDate(created, locale), time: fmtTime(created, locale) })}</p>
           </div>
           <div className="flex flex-col items-end gap-1">

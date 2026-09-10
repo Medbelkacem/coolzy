@@ -7,6 +7,7 @@ import { fmtDateTime } from "@/lib/time";
 import { StatusChip } from "@/components/ui/StatusChip";
 import { EmptyState } from "@/components/ui/EmptyState";
 import type { AppLocale } from "@/i18n/config";
+import { OrderNumber } from "@/components/ui/OrderNumber";
 
 export const dynamic = "force-dynamic";
 
@@ -40,7 +41,7 @@ export default async function MyHistoryPage() {
             const count = o.items.reduce((s, i) => s + i.qty, 0);
             return (
               <li key={o.id} className="flex flex-wrap items-center gap-x-4 gap-y-1 px-4 py-3">
-                <span className="font-medium tabular">{displayNumber(o.number)}</span>
+                <OrderNumber n={o.number} className="font-medium" />
                 <span className="text-sm text-[var(--fg-muted)]">{fmtDateTime(o.createdAt, locale)}</span>
                 <span className="chip">{o.type === "TABLE" ? t("history.table", { n: o.tableNumber ?? 0 }) : t("history.delivery")}</span>
                 <span className="text-sm text-[var(--fg-muted)]">{t("history.items", { count })}</span>

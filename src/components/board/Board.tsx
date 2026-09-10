@@ -31,7 +31,7 @@ export function Board({ initial }: { initial: OrderDTO[] }) {
   const onNew = useCallback((o: OrderDTO) => {
     setFlashIds((s) => new Set(s).add(o.id));
     setTimeout(() => setFlashIds((s) => { const n = new Set(s); n.delete(o.id); return n; }), 1200);
-    setAnnounce(t("newOrderAnnounce", { number: o.display }));
+    setAnnounce(t("newOrderAnnounce", { number: o.displayBidi }));
     if (!mutedRef.current) playChime();
   }, [t]);
 
@@ -172,7 +172,7 @@ export function Board({ initial }: { initial: OrderDTO[] }) {
             {recent.map((o) => (
               <div key={o.id} className="board-recent-card">
                 <div className="flex items-center justify-between gap-2">
-                  <span className="font-medium tabular">{o.display}</span>
+                  <bdi dir="ltr" className="font-medium tabular">{o.display}</bdi>
                   <StatusChip status={o.status} />
                 </div>
                 <div className="mt-1 flex flex-wrap gap-x-3 text-[var(--fg-muted)]">

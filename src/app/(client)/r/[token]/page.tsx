@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import { getOrderByToken } from "@/lib/receipt";
-import { toOrderDTO, flowFor } from "@/lib/orders";
+import { toOrderDTO, flowFor, displayNumberBidi } from "@/lib/orders";
 import { getShop } from "@/lib/shop";
 import { db } from "@/lib/db";
 import { formatDA } from "@/lib/money";
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ token: st
   const { token } = await params;
   const t = await getTranslations("receipt");
   const order = await getOrderByToken(token);
-  return { title: order ? t("order", { n: `#${String(order.number).padStart(4, "0")}` }) : t("title"), robots: { index: false, follow: false } };
+  return { title: order ? t("order", { n: displayNumberBidi(order.number) }) : t("title"), robots: { index: false, follow: false } };
 }
 
 /** The receipt is the tracking page. The URL token is the only credential. */

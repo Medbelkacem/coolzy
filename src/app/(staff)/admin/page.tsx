@@ -11,6 +11,7 @@ import { displayNumber } from "@/lib/orders";
 import { getLatestOrders, getSetupState, getTodayStats, getTopProductsToday } from "@/lib/admin-queries";
 import type { AppLocale } from "@/i18n/config";
 import "@/styles/admin.css";
+import { OrderNumber } from "@/components/ui/OrderNumber";
 
 export const dynamic = "force-dynamic";
 
@@ -56,7 +57,7 @@ export default async function AdminOverview() {
               {latest.map((o) => (
                 <li key={o.id}>
                   <Link href={`/admin/orders/${o.id}`} className="flex min-h-[56px] items-center gap-3 px-4 py-3 hover:bg-[color-mix(in_srgb,var(--fg)_3%,transparent)]">
-                    <span className="tabular w-16 shrink-0 font-medium">{displayNumber(o.number)}</span>
+                    <OrderNumber n={o.number} className="w-16 shrink-0 font-medium" />
                     <span className="tabular w-12 shrink-0 text-sm text-[var(--fg-muted)]">{fmtTime(o.createdAt, locale)}</span>
                     <span className="min-w-0 flex-1 truncate text-sm">{o.items.map((i) => `${i.qty}× ${i.nameSnapshot}`).join(", ")}</span>
                     <span className="tabular shrink-0 font-medium">{formatDA(o.total, locale)}</span>

@@ -6,7 +6,7 @@ import { EmptyState } from "@/components/ui/EmptyState";
 import { IconStar } from "@/components/ui/Icons";
 import { fmtDate } from "@/lib/time";
 import { formatPhone } from "@/lib/customer";
-import { displayNumber } from "@/lib/orders";
+import { displayNumberBidi } from "@/lib/orders";
 import { countReviews, listReviews } from "@/lib/admin-queries";
 import { ReviewStatus } from "@/generated/prisma/enums";
 import type { AppLocale } from "@/i18n/config";
@@ -45,7 +45,7 @@ export default async function AdminReviewsPage({ searchParams }: { searchParams:
                   <p className="font-display text-lg leading-tight">{r.productName}</p>
                   <p className="text-sm text-[var(--fg-muted)]">
                     <span>{r.customerName ?? (r.phone ? formatPhone(r.phone) : t("anonymous"))}</span>
-                    <span className="mx-2">{t("order", { number: displayNumber(r.orderNumber) })}</span>
+                    <span className="mx-2">{t("order", { number: displayNumberBidi(r.orderNumber) })}</span>
                     <span className="tabular">{fmtDate(r.createdAt, locale)}</span>
                   </p>
                 </div>

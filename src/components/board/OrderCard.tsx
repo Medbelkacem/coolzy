@@ -37,7 +37,7 @@ export function OrderCard({
     <article className={`board-card ${flash ? "flash-once" : ""}`} data-pending={pending} data-accent={order.type === "DELIVERY" ? "curacao" : "colada"} aria-busy={pending} aria-labelledby={`o-${order.id}`}>
       <header className="flex items-start justify-between gap-2">
         <div className="flex items-center gap-2">
-          <span id={`o-${order.id}`} className="board-number">{order.display}</span>
+          <bdi id={`o-${order.id}`} dir="ltr" className="board-number">{order.display}</bdi>
           <span className="chip">
             {order.type === "TABLE" ? <IconTable width={16} height={16} /> : <IconBike width={16} height={16} />}
             {order.type === "TABLE" ? t("tableChip", { n: order.tableNumber ?? 0 }) : t("deliveryChip")}

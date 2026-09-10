@@ -16,6 +16,7 @@ import { IconArrowBack } from "@/components/ui/Icons";
 import { ReorderButton } from "@/components/receipt/ReorderButton";
 import { ClaimPhone } from "./ClaimPhone";
 import "@/styles/receipt.css";
+import { OrderNumber } from "@/components/ui/OrderNumber";
 
 export const dynamic = "force-dynamic";
 
@@ -56,7 +57,7 @@ export default async function OrdersPage() {
               <li key={o.id} className="surface flex flex-col gap-3 p-4">
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <Link href={`/r/${o.token}`} className="font-display text-xl underline-offset-4 hover:underline">{displayNumber(o.number)}</Link>
+                    <Link href={`/r/${o.token}`} className="font-display text-xl underline-offset-4 hover:underline"><OrderNumber n={o.number} /></Link>
                     <p className="mt-0.5 text-sm text-[var(--fg-muted)]">
                       <span>{fmtDate(created, locale)}</span> <span className="tabular">{fmtTime(created, locale)}</span>
                     </p>

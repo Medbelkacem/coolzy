@@ -13,6 +13,7 @@ import { OrderStatus, OrderType } from "@/generated/prisma/enums";
 import type { AppLocale } from "@/i18n/config";
 import { OrderFilters } from "./OrderFilters";
 import "@/styles/admin.css";
+import { OrderNumber } from "@/components/ui/OrderNumber";
 
 export const dynamic = "force-dynamic";
 
@@ -58,7 +59,7 @@ export default async function AdminOrdersPage({ searchParams }: { searchParams: 
             <tbody>
               {orders.map((o) => (
                 <tr key={o.id}>
-                  <td className="num"><Link href={`/admin/orders/${o.id}`} className="admin-row-link">{displayNumber(o.number)}</Link></td>
+                  <td className="num"><Link href={`/admin/orders/${o.id}`} className="admin-row-link"><OrderNumber n={o.number} /></Link></td>
                   <td>{o.customerName ?? (o.customerPhone ? formatPhone(o.customerPhone) : o.type === "TABLE" ? t("anonymous") : "—")}</td>
                   <td className="max-w-[320px]"><span className="truncate-2">{o.items.map((i) => `${i.qty}× ${i.nameSnapshot}`).join(", ")}</span></td>
                   <td className="num font-medium">{formatDA(o.total, locale)}</td>

@@ -11,8 +11,8 @@ import type { Prisma } from "@/generated/prisma/client";
 import { locales } from "@/i18n/config";
 
 /* State machine lives in order-flow.ts (pure, client-safe); re-exported here. */
-import { TERMINAL_STATUSES, ACTIVE_STATUSES, canTransition, displayNumber } from "./order-flow";
-export { flowFor, isTerminal, nextStatus, canTransition, displayNumber } from "./order-flow";
+import { TERMINAL_STATUSES, ACTIVE_STATUSES, canTransition, displayNumber, displayNumberBidi } from "./order-flow";
+export { flowFor, isTerminal, nextStatus, canTransition, displayNumber, displayNumberBidi } from "./order-flow";
 export const TERMINAL = TERMINAL_STATUSES;
 export const ACTIVE = ACTIVE_STATUSES;
 
@@ -186,6 +186,7 @@ export function toOrderDTO(o: OrderFull) {
     token: o.token,
     number: o.number,
     display: displayNumber(o.number),
+    displayBidi: displayNumberBidi(o.number),
     dayKey: o.dayKey,
     type: o.type,
     status: o.status,

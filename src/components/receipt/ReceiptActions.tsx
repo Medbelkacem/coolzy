@@ -7,7 +7,7 @@ import { ReorderButton } from "./ReorderButton";
 export function ReceiptActions({ order, shopName, totalLabel, appUrl }: { order: OrderDTO; shopName: string; totalLabel: string; appUrl: string }) {
   const t = useTranslations("receipt");
   const url = `${appUrl}/r/${order.token}`;
-  const text = t("shareText", { shop: shopName, n: order.display, total: totalLabel, url });
+  const text = t("shareText", { shop: shopName, n: order.displayBidi, total: totalLabel, url });
   const canShare = typeof navigator !== "undefined" && typeof navigator.share === "function";
   return (
     <div className="flex flex-wrap gap-2">
@@ -24,7 +24,7 @@ export function ReceiptActions({ order, shopName, totalLabel, appUrl }: { order:
         {t("whatsapp")}
       </a>
       {canShare ? (
-        <button type="button" className="btn btn-quiet" onClick={() => navigator.share({ title: `${shopName} ${order.display}`, text, url }).catch(() => {})}>
+        <button type="button" className="btn btn-quiet" onClick={() => navigator.share({ title: `${shopName} ${order.displayBidi}`, text, url }).catch(() => {})}>
           <IconShare width={18} height={18} />
           {t("share")}
         </button>

@@ -6,7 +6,7 @@ import { PageHeader } from "@/components/admin/PageHeader";
 import { StatusChip } from "@/components/ui/StatusChip";
 import { formatDA } from "@/lib/money";
 import { fmtDateTime } from "@/lib/time";
-import { displayNumber } from "@/lib/orders";
+import { displayNumber, displayNumberBidi } from "@/lib/orders";
 import { formatPhone } from "@/lib/customer";
 import { getOrderForAdmin } from "@/lib/admin-queries";
 import { OrderStatus } from "@/generated/prisma/enums";
@@ -29,7 +29,7 @@ export default async function AdminOrderDetail({ params }: { params: Promise<{ i
     <>
       <Link href="/admin/orders" className="mb-3 inline-block text-sm text-[var(--fg-muted)] underline-offset-4 hover:underline">{t("back")}</Link>
       <PageHeader
-        title={t("title", { number: displayNumber(order.number) })}
+        title={t("title", { number: displayNumberBidi(order.number) })}
         subtitle={t("placed", { date: fmtDateTime(order.createdAt, locale) })}
         actions={
           <>

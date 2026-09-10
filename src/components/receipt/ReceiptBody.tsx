@@ -27,7 +27,7 @@ export function ReceiptBody({ order, shop, variant }: { order: OrderDTO; shop: S
           {shop.address ? <p>{shop.address}</p> : null}
           {shop.phone ? <p><span dir="ltr">{formatPhone(shop.phone)}</span></p> : null}
           <hr />
-          <p><strong>{t("order", { n: order.display })}</strong></p>
+          <p><strong>{t("order", { n: order.displayBidi })}</strong></p>
           <p>{t("placedAt", { date: fmtDate(created, locale), time: fmtTime(created, locale) })}</p>
           <p>{order.type === "TABLE" ? t("table", { n: order.tableNumber ?? "" }) : t("delivery")}</p>
           <hr />

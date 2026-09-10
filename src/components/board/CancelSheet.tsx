@@ -29,7 +29,7 @@ export function CancelSheet({ order, onClose, onConfirm }: { order: OrderDTO; on
       <button type="button" className="board-sheet-backdrop" aria-label={t("keepOrder")} onClick={onClose} />
       <div role="dialog" aria-modal="true" aria-labelledby="cancel-title" className="board-sheet sheet-up">
         <div className="mb-3 flex items-center justify-between gap-2">
-          <h2 id="cancel-title" className="font-display text-xl">{t("cancel")} {order.display}</h2>
+          <h2 id="cancel-title" className="font-display text-xl">{t("cancel")} <bdi dir="ltr">{order.display}</bdi></h2>
           <button type="button" className="btn btn-quiet btn-icon" aria-label={t("keepOrder")} onClick={onClose}><IconX /></button>
         </div>
         <label htmlFor="cancel-reason" className="label">{t("cancelReason")}</label>
