@@ -2,6 +2,8 @@
 
 The operating system of **Coolzy**, a coffee shop in Batna, Algeria: a dark, photographic client menu with cart, table and delivery ordering, live receipts, a realtime worker board, and an oat-paper admin with menu management, staff and salaries, expenses and statistics. Trilingual (French, English, Arabic with full RTL). Ships with an **empty database** — the admin builds the catalogue through the UI.
 
+Live: **https://coolzy-batna.vercel.app** (production, `main` branch).
+
 | Client menu | Worker board | Admin overview |
 |---|---|---|
 | ![Client menu](docs/screenshots/menu-mobile.png) | ![Worker board](docs/screenshots/board-tablet.png) | ![Admin overview](docs/screenshots/admin-overview.png) |

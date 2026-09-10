@@ -10,7 +10,8 @@ export async function GET(req: Request, { params }: { params: Promise<{ token: s
   const { token } = await params;
   const order = await getOrderByToken(token);
   if (!order) return new Response("Not found", { status: 404 });
-  const base = process.env.NEXT_PUBLIC_APP_URL || new URL(req.url).origin;
+  // On Vercel the public origin is authoritative; locally the request origin is (any port).
+  const base = process.env.VERCEL ? process.env.NEXT_PUBLIC_APP_URL || new URL(req.url).origin : new URL(req.url).origin;
   let browser: Awaited<ReturnType<typeof launchBrowser>> | null = null;
   try {
     browser = await launchBrowser();

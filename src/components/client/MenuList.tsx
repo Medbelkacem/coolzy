@@ -76,7 +76,7 @@ export function MenuList({ categories, currencyLabel }: { categories: MenuCatego
       {hero ? (
         <section className="hero" data-accent={hero.c.accent} aria-labelledby="hero-name">
           <div className={`photo ${firstLoad ? "hero-resolve" : ""}`}>
-            <Image src={hero.p.photoUrl!} alt={hero.p.name} fill sizes="(min-width: 768px) 50vw, 100vw" priority placeholder={hero.p.blurDataURL ? "blur" : "empty"} blurDataURL={hero.p.blurDataURL} style={{ objectFit: "cover" }} />
+            <Image src={hero.p.photoUrl!} alt={hero.p.name} fill sizes="(min-width: 768px) 50vw, 100vw" priority fetchPriority="high" placeholder={hero.p.blurDataURL ? "blur" : "empty"} blurDataURL={hero.p.blurDataURL} style={{ objectFit: "cover" }} />
           </div>
           <div>
             <p className="text-sm" style={{ color: "var(--accent-text-dark)" }}>{hero.c.name}</p>

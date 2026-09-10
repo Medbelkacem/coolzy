@@ -1,16 +1,27 @@
 import { Fraunces, Instrument_Sans, IBM_Plex_Sans_Arabic, Noto_Naskh_Arabic } from "next/font/google";
 
 /**
- * Latin faces are preloaded; Arabic faces are declared but only fetched when
- * the html[lang="ar"] rules use them, so a French visitor on 3G never pays
- * for them. Google's "latin" subset already covers œ/Œ and the French accents.
+ * The two Latin faces that carry first paint are preloaded; the italic and the
+ * Arabic faces are declared but fetched only where they are used, so a French
+ * visitor on 3G never pays for them. Google's "latin" subset already covers
+ * œ/Œ and the French accents.
  */
 export const fraunces = Fraunces({
   subsets: ["latin"],
-  style: ["normal", "italic"],
-  axes: ["opsz", "SOFT"],
+  style: ["normal"],
+  weight: "400",
   variable: "--font-fraunces",
   display: "swap",
+});
+
+/** The italic is a second face so it is not preloaded ahead of the hero photo. */
+export const frauncesItalic = Fraunces({
+  subsets: ["latin"],
+  style: ["italic"],
+  weight: "400",
+  variable: "--font-fraunces-italic",
+  display: "swap",
+  preload: false,
 });
 
 export const instrument = Instrument_Sans({
@@ -35,4 +46,4 @@ export const naskh = Noto_Naskh_Arabic({
   preload: false,
 });
 
-export const fontClassNames = [fraunces.variable, instrument.variable, plexArabic.variable, naskh.variable].join(" ");
+export const fontClassNames = [fraunces.variable, frauncesItalic.variable, instrument.variable, plexArabic.variable, naskh.variable].join(" ");

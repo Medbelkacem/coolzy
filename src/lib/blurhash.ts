@@ -9,7 +9,7 @@ export async function blurhashToDataURL(hash: string | null | undefined): Promis
   const hit = cache.get(hash);
   if (hit) return hit;
   try {
-    const w = 24, h = 24;
+    const w = 8, h = 8; // tiny: it is scaled up and blurred by the browser anyway
     const pixels = decode(hash, w, h);
     const png = await sharp(Buffer.from(pixels), { raw: { width: w, height: h, channels: 4 } }).png().toBuffer();
     const url = `data:image/png;base64,${png.toString("base64")}`;
