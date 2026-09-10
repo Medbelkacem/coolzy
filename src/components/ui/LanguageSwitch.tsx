@@ -21,7 +21,7 @@ export function LanguageSwitch({ className = "" }: { className?: string }) {
             aria-label={localeLongNames[l]}
             disabled={pending}
             onClick={() => start(() => setLocale(l))}
-            className={`min-h-[44px] min-w-[40px] rounded-[var(--radius-pill)] px-2 text-sm font-medium xfade ${
+            className={`min-h-[44px] min-w-[44px] rounded-[var(--radius-pill)] px-2 text-sm font-medium xfade ${
               active ? "bg-[var(--fg)] text-[var(--bg)]" : "text-[var(--fg-muted)] hover:text-[var(--fg)]"
             }`}
           >

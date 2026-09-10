@@ -69,7 +69,7 @@ html[lang="ar"] .board-card .board-number { font-family: var(--font-display-ar);
 .board-meta { font-size: var(--text-sm); color: var(--fg-muted); }
 .board-actions { display: flex; flex-direction: column; gap: 6px; margin-top: 2px; }
 .board-primary { min-height: 56px; font-size: var(--text-lg); width: 100%; }
-.board-cancel { align-self: flex-start; min-height: 40px; padding-inline: 10px; font-size: var(--text-sm); color: var(--fg-muted); }
+.board-cancel { align-self: flex-start; min-height: 44px; padding-inline: 10px; font-size: var(--text-sm); color: var(--fg-muted); }
 .board-cancel:hover { color: var(--color-stop); }
 .board-live {
   display: inline-flex;

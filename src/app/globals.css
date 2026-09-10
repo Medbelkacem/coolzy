@@ -153,6 +153,14 @@ html[lang="ar"] .font-display-italic {
 :where(.btn-danger:hover:not(:disabled)) { background: color-mix(in srgb, var(--color-stop) 8%, transparent); }
 :where(.btn-lg) { min-height: 56px; font-size: var(--text-lg); padding: 0 24px; }
 :where(.btn-sm) { min-height: 36px; font-size: var(--text-sm); padding: 0 14px; }
+/* A finger needs 44px; a mouse does not. Compact admin density stays on
+   pointer devices, touch devices get the full target. */
+@media (pointer: coarse) {
+  :where(.btn-sm) { min-height: 44px; }
+  :where(.chip) { min-height: 32px; }
+  /* A wordmark that links home is a tap target, not just a logo. */
+  :where(a) > :where(.wordmark) { display: inline-flex; align-items: center; min-height: 44px; }
+}
 :where(.btn-icon) { width: 44px; padding: 0; }
 
 /* Inputs */

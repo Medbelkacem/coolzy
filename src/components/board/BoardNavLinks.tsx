@@ -19,7 +19,7 @@ export function BoardNavLinks({ isAdmin }: { isAdmin: boolean }) {
       {items.map((i) => {
         const active = i.href === "/board" ? pathname === "/board" : pathname.startsWith(i.href);
         return (
-          <Link key={i.href} href={i.href} aria-current={active ? "page" : undefined} className={`min-h-[40px] whitespace-nowrap rounded-[var(--radius-pill)] px-3 text-sm leading-[40px] xfade ${active ? "bg-[var(--fg)] text-[var(--bg)]" : "text-[var(--fg-muted)] hover:text-[var(--fg)]"}`}>
+          <Link key={i.href} href={i.href} aria-current={active ? "page" : undefined} className={`min-h-[44px] whitespace-nowrap rounded-[var(--radius-pill)] px-3 text-sm leading-[44px] xfade ${active ? "bg-[var(--fg)] text-[var(--bg)]" : "text-[var(--fg-muted)] hover:text-[var(--fg)]"}`}>
             {i.label}
           </Link>
         );

@@ -14,7 +14,7 @@ export function LoginForm({ next, expired }: { next: string; expired: boolean })
       {expired ? <p className="text-sm text-[var(--color-warn)]" role="status">{t("sessionEnded")}</p> : null}
       <Field label={t("login")} name="login" required autoComplete="username" autoCapitalize="none" spellCheck={false} />
       <Field label={t("password")} name="password" type="password" required autoComplete="current-password" />
-      {state?.error ? <p role="alert" className="field-error">{t("invalid")}</p> : null}
+      {state?.error ? <p role="alert" className="field-error">{state.error === "rateLimited" ? t("rateLimited") : t("invalid")}</p> : null}
       <SubmitButton className="btn btn-primary btn-lg mt-2" pendingLabel={t("signingIn")}>{t("signIn")}</SubmitButton>
     </form>
   );

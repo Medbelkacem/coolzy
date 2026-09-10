@@ -208,6 +208,11 @@
 .client-footer { margin-top: 48px; padding: 24px 16px 40px; border-top: 1px solid var(--hairline); color: var(--fg-muted); font-size: var(--text-sm); display: grid; gap: 20px; }
 @media (min-width: 768px) { .client-footer { grid-template-columns: repeat(3, 1fr); } }
 .client-footer a { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
+/* Calling the shop or opening the map is a real tap, not an aside in a
+   sentence, so these get a finger-sized target on touch devices. */
+@media (pointer: coarse) {
+  .client-footer a { display: inline-flex; align-items: center; min-height: 44px; }
+}
 .client-footer h2 { color: var(--fg); font-size: var(--text-base); margin-bottom: 6px; }
 .hours { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; }
 .hours .today { color: var(--fg); }

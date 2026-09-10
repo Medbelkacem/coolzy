@@ -20,6 +20,18 @@ export async function checkRateLimit(key: string, limit: number, windowSeconds: 
   return updated.count <= limit;
 }
 
+/**
+ * Reads the current window without consuming an attempt. Used to tell a locked
+ * out user why, after the attempt has already been counted elsewhere.
+ */
+export async function isRateLimited(key: string, limit: number, windowSeconds: number): Promise<boolean> {
+  const windowMs = windowSeconds * 1000;
+  const windowStart = new Date(Math.floor(Date.now() / windowMs) * windowMs);
+  const row = await db().rateLimit.findUnique({ where: { key } });
+  if (!row || row.windowStart.getTime() !== windowStart.getTime()) return false;
+  return row.count >= limit;
+}
+
 /** Best-effort client IP for rate-limit keys. */
 export function clientIp(headers: Headers): string {
   return (
