@@ -16,6 +16,18 @@
   gap: 8px;
   padding: 4px 6px 10px;
 }
+/* The column scrolls under its own label during a rush, so the barista can
+   always see which queue they are looking at and how deep it is. */
+@media (min-width: 768px) {
+  .board-col-head {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: var(--bg);
+    padding-top: 8px;
+    box-shadow: 0 6px 8px -8px rgba(14, 12, 11, 0.35);
+  }
+}
 .board-card {
   background: var(--bg-raised);
   border: 1px solid var(--hairline);

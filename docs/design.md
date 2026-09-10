@@ -142,6 +142,11 @@ Three columns from 768px, single scroll on a phone. Cards sized to read at arm's
   #0004 Servie   #0006 Annulée   #0008 Livrée
 ```
 
+Each column scrolls on its own under a pinned header, so a barista working through nineteen
+new orders can always see which queue they are in and how deep it is. The next order to act
+on is at the top of its column, and its action button is in view without scrolling at every
+tablet size tested.
+
 A new order flashes once and chimes; the chime is mutable and the mute persists. Every
 transition records which worker made it and when.
 
